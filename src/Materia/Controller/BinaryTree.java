@@ -54,4 +54,20 @@ private Node root;
             System.out.print(nodo.getValue() + " ");
         }
     }
+    public boolean findValue(int value) {
+    return findValueRec(root, value);
+}
+private boolean findValueRec(Node nodo, int value) {
+    if (nodo == null) {
+        return false; 
+    }
+    if (nodo.getValue() == value) {
+        return true;
+    }
+    if (value < nodo.getValue()) {
+        return findValueRec(nodo.getLeft(), value);
+    } else {
+        return findValueRec(nodo.getRight(), value);
+    }
+}
 }
